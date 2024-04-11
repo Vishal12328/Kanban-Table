@@ -21,7 +21,17 @@ print("Hello and welcome to Kanban board")
 todo_list = []
 in_progress_list = []
 done_list = []
+def assign_tasks():
+    assignees_dict = {}
+    while True:
+        assignee = input("Whom do you want to assign the task to? (If none, enter 'done'): ")
+        if assignee.lower() == "done":
+            break
+        else:
+            assign_task = input("What task would you like to assign?: ")
+            assignees_dict.setdefault(assignee, []).append(assign_task)
 
+    print("Assignees and Tasks:", assignees_dict)
 number_of_tasks = int(input("Enter the number of tasks you need to add:"))
 
 def task_input():
