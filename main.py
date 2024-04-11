@@ -43,6 +43,21 @@ def reporter():
         if counter >= (len(value)//2)+1:
             report.append(key)
     print(report)
+def sorting_wrt_priority():
+    high_priority = []
+    mid_priority = []
+    low_priority = []
+    while True:
+        task_for_prior = input("what is the task that you would like to prioritize(if done enter done): ")
+        if task_for_prior == "done":
+            break
+        type_of_prior = input("what is the level of priority(high/mid/low): ")
+        if type_of_prior == "high":
+            high_priority.append(task_for_prior)
+        elif type_of_prior == "mid":
+            mid_priority.append(task_for_prior)
+        elif type_of_prior == "low":
+            low_priority.append(task_for_prior)
 def task_input():
     task = input("Enter the task: ")
     task_type = input("Enter the type of the task (todo/inProgress/done): ").lower()
