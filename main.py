@@ -33,7 +33,16 @@ def assign_tasks():
 
     print("Assignees and Tasks:", assignees_dict)
 number_of_tasks = int(input("Enter the number of tasks you need to add:"))
-
+def reporter():
+    report = []
+    for key, value in assignees_dict.items():
+        counter = 0
+        for item in value:
+            if item in todo_list:
+                counter += 1
+        if counter >= (len(value)//2)+1:
+            report.append(key)
+    print(report)
 def task_input():
     task = input("Enter the task: ")
     task_type = input("Enter the type of the task (todo/inProgress/done): ").lower()
