@@ -58,6 +58,13 @@ def sorting_wrt_priority():
             mid_priority.append(task_for_prior)
         elif type_of_prior == "low":
             low_priority.append(task_for_prior)
+def redo_task():
+    print(done_list)
+    task_redo = input("which task from this would you like to redo?:")
+    for l in done_list:
+        if l == task_redo:
+            done_list.remove(task_redo)
+            todo_list.append(task_redo)
 def task_input():
     task = input("Enter the task: ")
     task_type = input("Enter the type of the task (todo/inProgress/done): ").lower()
