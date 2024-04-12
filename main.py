@@ -82,6 +82,7 @@ def write_to_file():
             file.write("\n".join(mid_priority))
             file.write("\n\nLow Priority:\n")
             file.write("\n".join(low_priority))
+            file.write("====== ======")
 print("Hello and welcome to Kanban board")
 
 todo_list = []
