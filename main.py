@@ -43,14 +43,16 @@ def reporter():
         if counter >= (len(value)//2)+1:
             report.append(key)
     print(report)
-
+high_priority = []
+mid_priority = []
+low_priority = []
 def sorting_wrt_priority():
-    high_priority = []
-    mid_priority = []
-    low_priority = []
     while True:
         task_for_prior = input("what is the task that you would like to prioritize(if done enter done): ")
         if task_for_prior == "done":
+            print("High Priority Tasks:",high_priority)
+            print("Mid Priority Tasks:",mid_priority)
+            print("Low Priority Tasks:",low_priority)
             break
         type_of_prior = input("what is the level of priority(high/mid/low): ")
         if type_of_prior == "high":
@@ -66,6 +68,20 @@ def redo_task():
         if l == task_redo:
             done_list.remove(task_redo)
             todo_list.append(task_redo)
+def write_to_file():
+        with open("main.txt", "a") as file:
+            file.write("TODO:\n")
+            file.write("\n".join(todo_list))
+            file.write("\n\nIn Progress:\n")
+            file.write("\n".join(in_progress_list))
+            file.write("\n\nDone:\n")
+            file.write("\n".join(done_list))
+            file.write("\n\nHigh Priority:\n")
+            file.write("\n".join(high_priority))
+            file.write("\n\nMid Priority:\n")
+            file.write("\n".join(mid_priority))
+            file.write("\n\nLow Priority:\n")
+            file.write("\n".join(low_priority))
 print("Hello and welcome to Kanban board")
 
 todo_list = []
@@ -115,6 +131,7 @@ while True:
     elif choice == "6":
         redo_task()
     elif choice == "7":
+        write_to_file()
         print("See you again..")
         break
     else:
